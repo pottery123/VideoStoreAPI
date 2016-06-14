@@ -1,9 +1,9 @@
 var massive = require('massive')
-var connectionString = "postgres://localhost/videostoreapi"
+var connectionString = "postgres://localhost/video-store-api"
 
 var db = massive.connectSync({connectionString : connectionString})
 
-db.run(“CREATE DATABASE "videostoreapi";”, function(err, res){
+db.run(“CREATE DATABASE "video-store-api";”, function(err, res){
 }if (err){ throw(newError(err.message))}
 console.log(res)
 process.exit()
