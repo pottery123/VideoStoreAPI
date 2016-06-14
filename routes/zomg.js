@@ -21,3 +21,14 @@
 // UPDATE (/rentals/:id/:title/check-out)
 // UPDATE (/rentals/:id/:title/return)
 // GET (/rentals/overdue)
+
+var express = require('express');
+var router = express.Router();
+var locals = {}
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.status(200).json({whatevs: 'zomg!!!'})
+});
+
+module.exports = router;
