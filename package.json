@@ -8,7 +8,7 @@
     "db:drop": "dropdb video-store-api",
     "db:create": "createdb video-store-api",
     "db:schema": "node tasks/load_schema.js",
-    "db:seed": "",
+    "db:seed": "node tasks/seed.js",
     "db:reset": "npm run db:drop; npm run db:create; npm run db:schema"
   },
   "dependencies": {
@@ -19,7 +19,6 @@
     "jade": "~1.11.0",
     "massive": "^2.3.0",
     "morgan": "~1.6.1",
-    "sequelize": "^3.23.3",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {

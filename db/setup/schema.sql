@@ -4,7 +4,7 @@ CREATE TABLE movies(
   title text,
   overview text,
   release_date text,
-  inventory_total text,
+  inventory_total text
 );
 
-CREATE INDEX movies_movie ON movies (movie);
+CREATE INDEX movies_movie ON movies (title);
