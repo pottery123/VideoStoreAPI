@@ -7,4 +7,20 @@ CREATE TABLE movies(
   inventory text
 );
 
-CREATE INDEX movies_movie ON movies (title);
+-- CREATE INDEX movies_movie ON movies (title);
+
+
+DROP TABLE IF EXISTS customers;
+CREATE TABLE customers(
+  id serial PRIMARY KEY,
+  name text,
+  registered_at text,
+  address text,
+  city text,
+  state text,
+  postal_code text,
+  phone text,
+  account_credit float
+);
+
+-- CREATE INDEX customers_customer ON customers (name);
