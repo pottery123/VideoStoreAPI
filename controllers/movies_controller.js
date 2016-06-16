@@ -2,13 +2,15 @@ var Movie = require("../models/movie")
 
 var MoviesController = {
   index: function(req, res, next) {
-    Movie.getAll(function(error, movies) {
+    Movie.all(function(error, movies) {
       if(error) {
         var err = new Error("Error retrieving movies:\n" + error.message)
         err.status = 500
         next(err)
       } else {
         res.json(movies)
+        console.log(res)
+
         // res.render("accounts/index", {
         //   accounts: accounts
         // })

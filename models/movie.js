@@ -1,10 +1,5 @@
 var app = require("../app")
-
-
-
-
 var db = app.get('db')
-console.log(db)
 
 // Constructor function
 var Movie = function(id) {
@@ -20,7 +15,7 @@ var Movie = function(id) {
 // get list of customers who have rented title in the past - sort by cust name or checkout_date
 //   include cust name, phone no, and acct_credit
 
-Movie.getAll = function(callback) {
+Movie.all = function(callback) {
   db.movies.find(function(error, movies) {
     if(error) {
       callback(error || new Error("Could not retrieve movies"), undefined)
@@ -28,13 +23,15 @@ Movie.getAll = function(callback) {
       callback(error || new Error("No movies found"), undefined)
     } else {
       callback(null, movies.map(function(movie) {
-        return new Movie(movie.id)
+        return new Movie(movie)
       }))
     }
   })
 
 // sort by release date or by title
 }
+
+
 
 Movie.prototype.getSubset = function(number, pages, callback) {
 // return n movie records, with p (per page)
