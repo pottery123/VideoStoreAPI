@@ -34,6 +34,47 @@ Movie.all = function(callback) {
 
 
 Movie.prototype.getSubset = function(number, pages, callback) {
+  var options_release_date = {
+    number : number,
+    order : release_date,
+    offset : pages
+  }
+
+  db.movies.find({}, options_release_date, function(err, movies){
+    if(error) {
+      callback(error || new Error("Could not retrieve movies"), undefined)
+    } else if(!movies) {
+      callback(error || new Error("No movies found"), undefined)
+    } else {
+      callback(null, movies.map(function(movie) {
+        return new Movie(movie)
+      }))
+    }
+
+  })
+
+  var options_title = {
+    number : number,
+    order : title,
+    offset : pages
+  }
+
+  db.movies.find({}, options_title, function(err, movies){
+    if(error) {
+      callback(error || new Error("Could not retrieve movies"), undefined)
+    } else if(!movies) {
+      callback(error || new Error("No movies found"), undefined)
+    } else {
+      callback(null, movies.map(function(movie) {
+        return new Movie(movie)
+      }))
+    }
+
+  })
+
+
+
+
 // return n movie records, with p (per page)
 // sort by release date or by title
 
