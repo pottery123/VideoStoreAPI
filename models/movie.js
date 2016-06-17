@@ -27,8 +27,6 @@ Movie.all = function(callback) {
       }))
     }
   })
-
-// sort by release date or by title
 }
 
 
@@ -40,7 +38,7 @@ Movie.prototype.getSubset = function(number, pages, callback) {
     offset : pages
   }
 
-  db.movies.find({}, options_release_date, function(err, movies){
+  db.movies.find({}, options_release_date, function(err, movies) {
     if(error) {
       callback(error || new Error("Could not retrieve movies"), undefined)
     } else if(!movies) {
@@ -59,7 +57,7 @@ Movie.prototype.getSubset = function(number, pages, callback) {
     offset : pages
   }
 
-  db.movies.find({}, options_title, function(err, movies){
+  db.movies.find({}, options_title, function(err, movies) {
     if(error) {
       callback(error || new Error("Could not retrieve movies"), undefined)
     } else if(!movies) {
@@ -69,8 +67,8 @@ Movie.prototype.getSubset = function(number, pages, callback) {
         return new Movie(movie)
       }))
     }
-
   })
+}
 
 
 
@@ -78,7 +76,6 @@ Movie.prototype.getSubset = function(number, pages, callback) {
 // return n movie records, with p (per page)
 // sort by release date or by title
 
-}
 
 Movie.prototype.getByTitle = function(title, callback) {
 // get list of customers who are CURRENTLY renting the title
