@@ -10,70 +10,21 @@ var MoviesController = {
         next(err)
       } else {
         res.json(movies)
-        console.log(res)
       }
     })
   },
 
-  getSubset: function(req, res, next) {
-    Movie.all(function(error, movies) {
+  sort: function(req, res, next) {
+    Movie.sort(req.query.n, req.params.column_name, req.query.p, function(error, movies) {
       if(error) {
         var err = new Error("Error retrieving movies:\n" + error.message)
         err.status = 500
         next(err)
       } else {
         res.json(movies)
-        console.log(res)
       }
     })
   }
 }
 
 module.exports = MoviesController
-
-
-
-
-// res.render("accounts/index", {
-//   accounts: accounts
-// })
-
-
-// getSubset: function(req, res, next) {
-//   Movie.all(function(error, movies) {
-//     if(error) {
-//       var err = new Error("Error retrieving movies:\n" + error.message)
-//       err.status = 500
-//       next(err)
-//     } else {
-//       res.json(movies)
-//       console.log(res)
-//
-//       // res.render("accounts/index", {
-//       //   accounts: accounts
-//       // })
-//     }
-//   }
-// })
-
-
-
-
-  // show: function(req, res, next) {
-  //   Account.find(req.params.id, function(error, account) {
-  //     if(error) {
-  //       var err = new Error("No such account")
-  //       err.status = 404
-  //       next(err)
-  //     } else {
-  //       account.getBalance(function(error, balance) {
-  //         res.render("accounts/show", {
-  //           account: {
-  //             id: account.id,
-  //             balance: balance
-  //           }
-  //         })
-  //       })
-  //     }
-  //   })
-  //
