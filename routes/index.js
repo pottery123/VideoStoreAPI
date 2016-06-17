@@ -15,4 +15,8 @@ router.get('/movies/sort/:title', function(req, res, next) {
   controller.sort(req, res, next)
 })
 
+router.get('/movies/getbytitle/:title', function(req, res, next) {
+  controller.getbytitle(req, res, next)
+})
+
 module.exports = router
