@@ -24,6 +24,18 @@ var MoviesController = {
         res.json(movies)
       }
     })
+  },
+
+  getbytitle: function(req, res, next) {
+    Movie.sort(req.params.title, function(error, movies) {
+      if(error) {
+        var err = new Error("Error retrieving movies:\n" + error.message)
+        err.status = 500
+        next(err)
+      } else {
+        res.json(movies)
+      }
+    })
   }
 }
 

@@ -49,24 +49,40 @@ Movie.sort = function(n, column_name, p, callback) {
   })
 }
 
-Movie.prototype.getByTitle = function(title, callback) {
+Movie.getbytitle = function(title, callback) {
 // get list of customers who are CURRENTLY renting the title
 // include cust name, phone no, and acct_credit
 
 // get list of customers who have PAST rented the title
+
+  var options = {
+    order : column_name
+  }
+
+  db.movies.find({}, options, function(error, movies) {
+    if(error) {
+      callback(error || new Error("Could not retrieve movies"), undefined)
+    } else if(!movies) {
+      callback(error || new Error("No movies found"), undefined)
+    } else {
+      callback(null, movies.map(function(movie) {
+        return new Movie(movie)
+      }))
+    }
+  })
 }
 
-var balanceResultCallback = function(movie, callback) {
-  return function(error, result) {
-    if(error) {
-      callback(error, undefined)
-    } else {
-      account.getBalance(function(error, balance) {
-        callback(error, balance)
-      })
-    }
-  }
-}
+// var balanceResultCallback = function(movie, callback) {
+//   return function(error, result) {
+//     if(error) {
+//       callback(error, undefined)
+//     } else {
+//       account.getBalance(function(error, balance) {
+//         callback(error, balance)
+//       })
+//     }
+//   }
+// }
 
 // Movie.prototype.deposit = function(amount, callback) {
 //   db.accounts_deposit(this.id, amount, balanceResultCallback(this, callback))
