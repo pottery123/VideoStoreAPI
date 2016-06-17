@@ -8,7 +8,6 @@ var bodyParser = require('body-parser')
 var massive = require('massive')
 var connectionString = "postgres://localhost/video-store-api"
 
-
 var app = module.exports = express()
 
 var db = massive.connectSync({connectionString : connectionString})

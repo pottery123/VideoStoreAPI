@@ -1,11 +1,9 @@
 var app = require("../app")
 var db = app.get('db')
 
-
 var Customer = function(id) {
   this.id = id
 }
-
 
 Customer.all = function(callback) {
   db.customers.find(function(error, customers) {
@@ -14,8 +12,8 @@ Customer.all = function(callback) {
     } else if(!customers) {
       callback(error || new Error("No customers found"), undefined)
     } else {
-      callback(null, customers.map(function(customers) {
-        return new Customers(customer)
+      callback(null, customers.map(function(customer) {
+        return new Customer(customer)
       }))
     }
   })
@@ -36,8 +34,8 @@ Customer.sort = function(n, p, id, name, column_name, callback) {
     } else if(!customers) {
       callback(error || new Error("No customers found"), undefined)
     } else {
-      callback(null, customers.map(function(customers) {
-        return new Customers(customer)
+      callback(null, customers.map(function(customer) {
+        return new Customer(customer)
       }))
     }
   })
@@ -62,3 +60,5 @@ Customer.sort = function(n, p, id, name, column_name, callback) {
 //     }
 //   })
 // }
+
+module.exports = Customer

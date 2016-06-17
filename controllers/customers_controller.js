@@ -1,5 +1,4 @@
 var Customer = require("../models/customer")
-console.log("customers")
 
 var CustomersController = {
 
