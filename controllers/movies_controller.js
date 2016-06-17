@@ -11,15 +11,11 @@ var MoviesController = {
       } else {
         res.json(movies)
         console.log(res)
+      }
+    })
+  },
 
-        // res.render("accounts/index", {
-        //   accounts: accounts
-        // })
-    }
-
-
-
-  getSubset: function(req, res, next){
+  getSubset: function(req, res, next) {
     Movie.all(function(error, movies) {
       if(error) {
         var err = new Error("Error retrieving movies:\n" + error.message)
@@ -28,13 +24,10 @@ var MoviesController = {
       } else {
         res.json(movies)
         console.log(res)
-
-
       }
     })
   }
 }
-
 
 module.exports = MoviesController
 
