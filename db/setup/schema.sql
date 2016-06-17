@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS rentals;
 CREATE TABLE rentals(
   id serial PRIMARY KEY,
   movie_id text,
+  customer_id text,
   title text,
   overview text,
   release_date text,
