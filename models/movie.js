@@ -29,10 +29,11 @@ Movie.all = function(callback) {
   })
 }
 
-Movie.sort = function(n, column_name, p, callback) {
+Movie.sort = function(column_name, n, p, callback) {
+  console.log(String(column_name))
   var options = {
-    limit : n,
     order : column_name,
+    limit : n,
     offset : p
   }
 

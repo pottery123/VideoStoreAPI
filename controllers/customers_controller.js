@@ -15,7 +15,7 @@ var CustomersController = {
   },
 
   sort: function(req, res, next) {
-    Customer.sort(req.query.n, req.params.columns, req.params.column_name, req.query.p, function(error, customers) {
+    Customer.sort(req.params.column_name, req.params.columns, req.query.n, req.query.p, function(error, customers) {
       if(error) {
         var err = new Error("Error retrieving customers:\n" + error.message)
         err.status = 500

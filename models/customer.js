@@ -19,14 +19,13 @@ Customer.all = function(callback) {
   })
 }
 
-Customer.sort = function(n, p, id, name, column_name, callback) {
+Customer.sort = function(column_name, columns, n, p, callback) {
   var options = {
     limit : n,
     offset : p,
     columns : ["name", "registered_at", "postal_code"],
     order : column_name
   }
-
 
   db.customers.find({}, options, function(error, customers) {
     if(error) {
@@ -35,6 +34,7 @@ Customer.sort = function(n, p, id, name, column_name, callback) {
       callback(error || new Error("No customers found"), undefined)
     } else {
       callback(null, customers.map(function(customer) {
+        console.log(customer)
         return new Customer(customer)
       }))
     }

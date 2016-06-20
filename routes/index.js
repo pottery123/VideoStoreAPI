@@ -12,7 +12,7 @@ router.get('/movies', function(req, res, next) {
   movies_controller.index(req, res, next)
 })
 
-router.get('/movies/sort/:title', function(req, res, next) {
+router.get('/movies/sort/:column_name', function(req, res, next) {
   movies_controller.sort(req, res, next)
 })
 
@@ -24,7 +24,7 @@ router.get('/customers', function(req, res, next){
   customers_controller.index(req, res, next)
 })
 
-router.get('/customers/sort/:id', function(req, res, next) {
+router.get('/customers/sort/:column_name', function(req, res, next) {
   customers_controller.sort(req, res, next)
 })
 
