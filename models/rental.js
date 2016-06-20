@@ -16,12 +16,12 @@ Rental.current = function(n, p, column_name, columns, callback) {
 
   db.rentals.find({
     or: [{
-      "customer_id =" :req.params.columns["customer_id"],
+      // "customer_id =" :req.params.columns["customer_id"],
       "returned_date =": null
 
 
    }]
- }, options, function(error, rental) {
+ }, options, function(error, rentals) {
     if(error) {
       callback(error || new Error("Could not retrieve checket out rentals"), undefined)
     } else if(!rentals) {

@@ -13,7 +13,7 @@
 "title": "The Exorcist",
 "checkout_date": "2016-06-14",
 "due_date": "2016-06-16",
-"returned_date": "2016-06-15"
+"returned_date": null
 },
 {
 "movie_id": "5",
@@ -29,7 +29,7 @@
 "title": "Rosemary's Baby",
 "checkout_date": "2011-04-14",
 "due_date": "2011-04-16",
-"returned_date": "2011-04-16"
+"returned_date": null
 },
 {
 "movie_id": "12",
@@ -45,7 +45,7 @@
 "title": "Rear Window",
 "checkout_date": "2015-11-10",
 "due_date": "2015-11-12",
-"returned_date": "2015-11-13"
+"returned_date": null
 },
 {
 "movie_id": "15",
@@ -53,7 +53,7 @@
 "title": "Deliverance",
 "checkout_date": "2014-02-09",
 "due_date": "2014-02-11",
-"returned_date": "2014-03-11"
+"returned_date": null
 },
 {
 "movie_id": "18",
