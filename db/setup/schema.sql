@@ -26,10 +26,7 @@ CREATE TABLE rentals(
   movie_id text,
   customer_id text,
   title text,
-  overview text,
-  release_date text,
-  inventory_available text,
-  inventory text,
   checkout_date text,
-  due_date text
+  due_date text,
+  returned_date text
 );
