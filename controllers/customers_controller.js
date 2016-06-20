@@ -1,4 +1,5 @@
 var Customer = require("../models/customer")
+var Rental = require("../models/rental")
 
 var CustomersController = {
 
@@ -36,7 +37,22 @@ var CustomersController = {
         res.json(customers)
       }
     })
+  },
+
+  current: function(req, res, next) {
+    Rental.current(req.query.n,req.query.p, req.params.column_name, req.params.columns, function(error, rentals) {
+      if(error) {
+        var err = new Error("Error retrieving rentals:\n" + error.message)
+        err.status = 500
+        next(err)
+      } else {
+        res.json(rentals)
+      }
+    })
   }
+
+
+
 }
 
 module.exports = CustomersController

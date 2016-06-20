@@ -73,6 +73,8 @@ Movie.getbytitle = function(title, callback) {
   })
 }
 
+
+
 // var balanceResultCallback = function(movie, callback) {
 //   return function(error, result) {
 //     if(error) {

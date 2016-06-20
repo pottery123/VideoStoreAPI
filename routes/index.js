@@ -28,8 +28,11 @@ router.get('/customers/sort/:column_name', function(req, res, next) {
   customers_controller.sort(req, res, next)
 })
 
-router.get('/customers/getbyid/:id', function(req, res, next) {
+router.get('/customers/getbyid/:id', function(req, res, next){
   customers_controller.getbyid(req, res, next)
 })
 
+router.get('/customers/:id/current', function(req,res,next){
+  customers_controller.current(req,res,next)
+})
 module.exports = router

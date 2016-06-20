@@ -36,7 +36,23 @@ var MoviesController = {
         res.json(movies)
       }
     })
-  }
+  },
+
+  currently_checkout: function(req, res, next) {
+    Rental.sort(req.params.name, function(error, rentals) {
+      if(error) {
+        var err = new Error("Error retrieving rentals:\n" + error.message)
+        err.status = 500
+        next(err)
+      } else {
+        res.json(rentals)
+      }
+    })
+  },
+
+
+
+
 }
 
 module.exports = MoviesController
