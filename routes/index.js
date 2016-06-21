@@ -35,4 +35,9 @@ router.get('/customers/getbyid/:id', function(req, res, next){
 router.get('/customers/:id/current', function(req,res,next){
   customers_controller.current(req,res,next)
 })
+
+
+router.get('/movies/:title/history/sort/:column_name',function(req,res,next){
+  movies_controller.history(req,res,next)
+})
 module.exports = router

@@ -1,4 +1,5 @@
 var Movie = require("../models/movie")
+var Rental = require("../models/rental")
 
 var MoviesController = {
 
@@ -37,7 +38,6 @@ var MoviesController = {
       }
     })
   },
-
   currently_checkout: function(req, res, next) {
     Rental.sort(req.params.name, function(error, rentals) {
       if(error) {
@@ -49,6 +49,20 @@ var MoviesController = {
       }
     })
   },
+
+  history: function(req, res, next) {
+    Rental.history(req.params.title, req.params.column_name, function(error, rentals) {
+      if(error) {
+        var err = new Error("Error retrieving rentals:\n" + error.message)
+        err.status = 500
+        next(err)
+      } else {
+        res.json(rentals)
+      }
+    })
+  }
+
+
 
 
 
