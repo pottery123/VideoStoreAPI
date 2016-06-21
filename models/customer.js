@@ -54,7 +54,7 @@ Customer.find_id = function(customer_ids, column_name, columns) {
     //   callback(error || new Error("No customers found"), undefined)
     // } else {
     //   callback(null, customers.map(function(customer) {
-    console.log(customer)
+    // console.log(customer)
         return new Customer(customer)
       // }))
     // }

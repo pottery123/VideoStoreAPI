@@ -40,7 +40,6 @@ var CustomersController = {
   },
 
   current: function(req, res, next) {
-    // console.log(req.params.id)
     Rental.current(req.params.id, function(error, rentals) {
       if(error) {
         var err = new Error("Error retrieving rentals" + error.message)
