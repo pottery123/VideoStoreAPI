@@ -40,9 +40,10 @@ var CustomersController = {
   },
 
   current: function(req, res, next) {
-    Rental.current(req.query.n,req.query.p, req.params.column_name, req.params.columns, function(error, rentals) {
+    // console.log(req.params.id)
+    Rental.current(req.params.id, function(error, rentals) {
       if(error) {
-        var err = new Error("Error retrieving rentals:\n" + error.message)
+        var err = new Error("Error retrieving rentals" + error.message)
         err.status = 500
         next(err)
       } else {
@@ -50,9 +51,6 @@ var CustomersController = {
       }
     })
   }
-
-
-
 }
 
 module.exports = CustomersController

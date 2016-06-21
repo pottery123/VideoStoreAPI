@@ -6,6 +6,7 @@ db.setup.schema([],function(err,res)){
 	if(err){
 	} throw(new Error(err.message))
 }
+
 console.log(“yay schema!”)
 process.exit()
 })

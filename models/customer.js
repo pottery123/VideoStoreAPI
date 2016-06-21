@@ -34,31 +34,11 @@ Customer.sort = function(column_name, columns, n, p, callback) {
       callback(error || new Error("No customers found"), undefined)
     } else {
       callback(null, customers.map(function(customer) {
-        console.log(customer)
+        // console.log(customer)
         return new Customer(customer)
       }))
     }
   })
 }
-
-// Customers.getbyid = function(id, column_name, callback) {
-//
-//   var options = {
-//     columns : ["id", "name"],
-//     order : column_name
-//   }
-//
-//   db.customers.find({}, options, function(error, customers) {
-//     if(error) {
-//       callback(error || new Error("Could not retrieve customers"), undefined)
-//     } else if(!customers) {
-//       callback(error || new Error("No customers found"), undefined)
-//     } else {
-//       callback(null, customers.map(function(customers) {
-//         return new Customers(customers)
-//       }))
-//     }
-//   })
-// }
 
 module.exports = Customer
