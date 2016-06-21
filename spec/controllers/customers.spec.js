@@ -19,19 +19,13 @@ describe("Endpoint at /customers", function () {
       })
     })
 
-    // it('has the right values for the keys', function(done) {
-    //   request.get(base_url, function(error, response, body) {
-    //     var data = JSON.parse(body)
-    //     expect(data.whatevs).toEqual('whatevs!!!')
-    //     done()
-    //   })
-    // })
+    it('has the right values for the keys', function(done) {
+      request.get(base_url, function(error, response, body) {
+        var customers = JSON.parse(body)[0]["id"]
+        expect(customers.name).toEqual('Shelley Rocha')
+        done()
+      })
+    })
   })
-
-
-
-
-
-
 
 })
