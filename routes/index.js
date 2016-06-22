@@ -16,8 +16,13 @@ router.get('/movies/sort/:column_name', function(req, res, next) {
   movies_controller.sort(req, res, next)
 })
 
-router.get('/movies/getbytitle/:title', function(req, res, next) {
-  movies_controller.getbytitle(req, res, next)
+router.get('/movies/:title/current',
+function(req, res, next) {
+  movies_controller.current(req, res, next)
+})
+
+router.get('/movies/:title/history/sort/:column_name',function(req, res, next){
+  movies_controller.history(req, res, next)
 })
 
 router.get('/customers', function(req, res, next){
@@ -28,16 +33,15 @@ router.get('/customers/sort/:column_name', function(req, res, next) {
   customers_controller.sort(req, res, next)
 })
 
-router.get('/customers/getbyid/:id', function(req, res, next){
-  customers_controller.getbyid(req, res, next)
+router.get('/customers/:id/current', function(req, res, next){
+  customers_controller.current(req, res, next)
 })
 
-router.get('/customers/:id/current', function(req,res,next){
-  customers_controller.current(req,res,next)
+// TO DO:
+router.get('/customers/:id/history',
+function(req, res, next) {
+  customers_controller.history(req, res, next)
 })
 
 
-router.get('/movies/:title/history/sort/:column_name',function(req,res,next){
-  movies_controller.history(req,res,next)
-})
 module.exports = router

@@ -59,11 +59,6 @@ Customer.find_id = function(customer_ids, column_name, columns) {
       // }))
     // }
   })
-
-
-
-
-
 }
 
 
