@@ -16,9 +16,9 @@
 "returned_date": null
 },
 {
-"movie_id": "5",
+"movie_id": "1",
 "customer_id": "9",
-"title": "The Silence of the Lambs",
+"title": "Psycho",
 "checkout_date": "2016-04-16",
 "due_date": "2016-04-18",
 "returned_date": "2016-04-16"
@@ -32,9 +32,9 @@
 "returned_date": null
 },
 {
-"movie_id": "12",
-"customer_id": "",
-"title": "King Kong",
+"movie_id": "1",
+"customer_id": "36",
+"title": "Psycho",
 "checkout_date": "2015-12-08",
 "due_date": "2015-12-10",
 "returned_date": "2015-12-12"

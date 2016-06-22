@@ -27,23 +27,22 @@ var CustomersController = {
     })
   },
 
-  getbyid: function(req, res, next) {
-    Customer.sort(req.query.n, req.params.columns, req.params.column_name, req.query.p, function(error, customers) {
+  current: function(req, res, next) {
+    Rental.current_id(req.params.id, req.params.column_name, function(error, rentals) {
       if(error) {
-        var err = new Error("Error retrieving customers:\n" + error.message)
+        var err = new Error("Error retrieving rentals" + error.message)
         err.status = 500
         next(err)
       } else {
-        res.json(customers)
+        res.json(rentals)
       }
     })
   },
 
-  current: function(req, res, next) {
-    // console.log(req.params.id)
-    Rental.current(req.params.id, function(error, rentals) {
+  history: function(req, res, next) {
+    Rental.history_cust_id(req.params.id, req.params.column_name, req.params.column, function(error, rentals) {
       if(error) {
-        var err = new Error("Error retrieving rentals" + error.message)
+        var err = new Error("Error retrieving rentals:\n" + error.message)
         err.status = 500
         next(err)
       } else {
