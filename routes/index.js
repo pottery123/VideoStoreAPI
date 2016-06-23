@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var movies_controller = require('../controllers/movies_controller')
 var customers_controller = require('../controllers/customers_controller')
+var rentals_controller = require('../controllers/rentals_controller')
 
 router.get('/', function(req, res, next) {
   res.status(200).json({whatevs: 'whatevs!!!'})
