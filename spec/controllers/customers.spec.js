@@ -26,22 +26,21 @@ describe("Endpoint at /customers", function () {
         done()
       })
     })
-  })
 
+    it('Endpoint at customers/15/current', function(done){
+      request.get("http://localhost:3000/customers/45/current", function(error,response, body){
+        var customers = JSON.parse(body)
+        expect(response.statusCode).toEqual(200)
+        done()
+      })
+    })
 
-  describe("#index", function(){
-    it ("returns a Success response", function(done){
-      request.get(base_url("/customers"), function(error,response,body){
-        expect(response.statusCode).toBe(200)
+    it('should be an array of objects', function(done){
+      request.get(base_url,function(error,response,body){
+        var customers = JSON.parse(body)
+        expect(typeof customers).toEqual('object')
         done()
       })
     })
   })
-
-
-
-
-
-
-
 })
