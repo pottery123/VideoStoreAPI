@@ -27,10 +27,13 @@ var RentalsController = {
     })
   },
 
-  check_out: function(req, res, next) {
-    Rental.check_out(req.params.title, req.params.customer_id, function(error, check_out) {
+  check_out: function(req, res) {
+    var title = req.params.title
+    var customer_id = req.params.customer_id
+
+    Rental.check_out(title, customer_id, function(error, result, next) {
       if(error) {
-        var err = new Error("Error retrieving customers:\n" + error.message)
+        var err = new Error("Error completing rental:\n" + error.message)
         err.status = 500
         next(err)
       } else {
