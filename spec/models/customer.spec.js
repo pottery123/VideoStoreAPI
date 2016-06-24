@@ -69,18 +69,4 @@ describe('Customer', function () {
 
   })
 
-  describe("#find_id", function(){
-    it('should return an array of objects', function(done){
-      Customer.find_id(1,10,name,function(error,customers){
-        expect(customers).toEqual('name')
-        done()
-      })
-    })
-
-  })
-
-
-
-
-
 })
