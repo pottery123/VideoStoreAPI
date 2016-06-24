@@ -48,18 +48,12 @@ Customer.find_id = function(customer_ids, column_name, columns) {
   }
 
   db.customers.find({}, options, function(error, customer) {
-    // if(error) {
-    //   callback(error || new Error("Could not retrieve customers"), undefined)
-    // } else if(!customers) {
-    //   callback(error || new Error("No customers found"), undefined)
-    // } else {
-    //   callback(null, customers.map(function(customer) {
-    // console.log(customer)
-        return new Customer(customer)
-      // }))
-    // }
+    if(error) {
+      callback(error, undefined)
+    } else {
+      callback(null, customers)
+    }
   })
 }
-
 
 module.exports = Customer
