@@ -1,6 +1,42 @@
 <html>
+<head
 <head>
-
   <h1> docs! </h1>
 </head>
+<body>
+  <h1>Video Store API - Endpoints</h1>
+
+  <ul>
+    <li>
+      <h2>Movies</h2>
+      <table>
+        <tr>
+          <th>Endpoint</th>
+          <th>HTTP Verb</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td>/movies</td>
+          <td>GET</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>/movies/sort/:column_name</td>
+          <td>GET</td>
+          <td>Sort params: title, release date</td>
+        </tr>
+        <tr>
+          <td>/movies/:title/current</td>
+          <td>GET</td>
+          <td>Returns current renters' name, phone number, account credit</td>
+        </tr>
+        <tr>
+          <td>/movies/:title/history/sort/:column_name</td>
+          <td>GET</td>
+          <td>Returns past renters' name, phone number, account credit- sort by customer name or check out date</td>
+        </tr>
+      </table>
+    </li>
+
+  </body>
 </html>
