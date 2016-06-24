@@ -37,7 +37,8 @@ var RentalsController = {
         err.status = 500
         next(err)
       } else {
-        res.json(check_out)
+        res.json(result)
+        res.statusCode = 204
       }
     })
   }
