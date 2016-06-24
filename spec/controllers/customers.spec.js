@@ -3,12 +3,12 @@ var base_url = "http://localhost:3000/customers"
 
 
 describe("Endpoint at /customers", function () {
-  // it('responds with a 200 status code', function (done) {
-  //   request.get(base_url, function(error, response, body) {
-  //     expect(response.statusCode).toEqual(200)
-  //     done()
-  //   })
-  // })
+  it('responds with a 200 status code', function (done) {
+    request.get(base_url, function(error, response, body) {
+      expect(response.statusCode).toEqual(200)
+      done()
+    })
+  })
 
   describe("the returned json data", function() {
     it('has the right keys', function(done) {
@@ -26,6 +26,21 @@ describe("Endpoint at /customers", function () {
         done()
       })
     })
-  })
 
+    it('Endpoint at customers/15/current', function(done){
+      request.get("http://localhost:3000/customers/45/current", function(error,response, body){
+        var customers = JSON.parse(body)
+        expect(response.statusCode).toEqual(200)
+        done()
+      })
+    })
+
+    it('should be an array of objects', function(done){
+      request.get(base_url,function(error,response,body){
+        var customers = JSON.parse(body)
+        expect(typeof customers).toEqual('object')
+        done()
+      })
+    })
+  })
 })
