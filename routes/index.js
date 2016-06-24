@@ -53,12 +53,12 @@ function(req, res, next) {
   rentals_controller.customers(req, res, next)
 })
 
-router.get('/rentals/:title/check-out/:id',
+router.get('/rentals/:title/check-out/:customer_id',
 function(req, res, next) {
   rentals_controller.check_out(req, res, next)
 })
 
-router.get('/rentals/:title/return/:id',
+router.get('/rentals/:title/return/:customer_id',
 function(req, res, next) {
   rentals_controller.return(req, res, next)
 })
