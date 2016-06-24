@@ -32,10 +32,51 @@ describe('Customer', function () {
 
   describe("#sort", function(){
     it('should return an array of objects', function(done){
-      Customer.sort(['name',1,30],function(error,customers){
+      Customer.sort('name',10,5,3,function(error,customers){
         expect(customers).toEqual(jasmine.any(Array))
+        done()
       })
     })
+
+    it('be a certain lenght', function(done){
+      Customer.sort('name',10,5,3, function(error,customers){
+        expect(customers.length).toEqual(5)
+        done()
+      })
+    })
+
+    it('it must sort by name', function(done){
+      Customer.sort('name',10,5,3, function(error,customers){
+        expect(customers[0]['id']['name']).toEqual('Acton Gilliam')
+        done()
+      })
+    })
+
+
+    it('if must be an address', function(done){
+      Customer.sort('address',10,5,3, function(error,customers){
+        expect(customers[0]['id']['address']).toEqual('121 Porta Ave')
+        done()
+      })
+    })
+
+    it('should give an error if column does not exist', function(done){
+      Customer.sort('candy',10,5,3, function(error,customers){
+        expect(error.message).toEqual('column "candy" does not exist')
+        done()
+      })
+    })
+
+  })
+
+  describe("#find_id", function(){
+    it('should return an array of objects', function(done){
+      Customer.find_id(1,10,name,function(error,customers){
+        expect(customers).toEqual('name')
+        done()
+      })
+    })
+
   })
 
 
