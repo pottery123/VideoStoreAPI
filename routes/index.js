@@ -55,7 +55,7 @@ function(req, res, next) {
 
 router.get('/rentals/:title/check-out/:id',
 function(req, res, next) {
-  rentals_controller.check-out(req, res, next)
+  rentals_controller.check_out(req, res, next)
 })
 
 router.get('/rentals/:title/return/:id',

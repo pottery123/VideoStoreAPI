@@ -8,13 +8,55 @@ var Rental = function(id) {
 }
 
 Rental.view = function(title, callback) {
-  db.run("SELECT overview, release_date FROM movies WHERE title IN (SELECT title FROM rentals where title = $1 AND returned_date IS null)", [title], function(error, rentals) {
+  db.run("SELECT overview, release_date FROM movies WHERE title IN (SELECT title FROM rentals WHERE title = $1 AND returned_date IS null)", [title], function(error, rentals) {
     // console.log("rentals: " + JSON.stringify(rentals))
     // console.log("error: " + error)
     if(error) {
       callback(error, undefined)
     } else {
       callback(null, rentals)
+    }
+  })
+}
+
+Rental.customers = function(title, callback) {
+  db.run("SELECT name FROM customers WHERE id IN (SELECT customer_id::int FROM rentals WHERE title = $1 AND returned_date IS null)", [title], function(error, customers) {
+    if(error) {
+      callback(error, undefined)
+    } else {
+      callback(null, customers)
+    }
+  })
+}
+
+Rental.check_out = function(title, customer_id, callback) {
+  var today = new Date()
+  var today_plus_two = new Date(today)
+  today_plus_two.setDate(today_plus_two.getDate() + 2)
+
+  var movie_id = db.run("SELECT id FROM rentals WHERE title = $1 LIMIT 1", [title])
+
+  db.rentals.save({
+    movie_id: movie_id,
+    customer_id: customer_id,
+    title: title,
+    checkout_date: today,
+    due_date: today_plus_two,
+    returned_date: null
+  }
+  // , function (error, rental) {
+  //   if (error) {
+  //     callback(error, undefined)
+  //   }
+  //     callback(null, rental)
+  // }
+)
+
+  db.run("UPDATE customers SET account_credit=account_credit-4 WHERE id=$1;", [customer_id], function (error, charged) {
+    if (error) {
+      callback(error, undefined);
+    } else {
+      callback(null, charged)
     }
   })
 }
