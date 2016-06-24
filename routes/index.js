@@ -58,7 +58,7 @@ function(req, res, next) {
   rentals_controller.check_out(req, res, next)
 })
 
-router.get('/rentals/:title/return/:customer_id',
+router.post('/rentals/:title/return/:customer_id',
 function(req, res, next) {
   rentals_controller.return_rental(req, res, next)
 })
