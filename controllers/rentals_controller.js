@@ -41,6 +41,21 @@ var RentalsController = {
         res.statusCode = 204
       }
     })
+  },
+
+  return_rental: function(req, res) {
+    console.log("request: " + res)
+
+    Rental.return_rental(title, customer_id, function(error, result, next) {
+      if(error) {
+        var err = new Error("Error completing rental:\n" + error.message)
+        err.status = 500
+        next(err)
+      } else {
+        res.json(result)
+        res.statusCode = 204
+      }
+    })
   }
 }
 

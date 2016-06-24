@@ -74,6 +74,17 @@ Rental.charge_customer = function (movie_id, customer_id, title, callback) {
   })
 }
 
+Rental.return_rental = function (title, customer_id, callback) {
+  var today = new Date()
+  db.run("UPDATE rentals SET returned_date = $1 WHERE customer_id::int = $2", [today, customer_id], function(error, result) {
+    if (error) {
+      callback(error, undefined)
+    } else {
+      callback(null, result)
+    }
+  })
+}
+
 Rental.current_title = function(title, columns, callback) {
   var options = {
     columns : ['name', 'phone', 'account_credit']

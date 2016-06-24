@@ -51,7 +51,7 @@ Customer.find_id = function(customer_ids, column_name, columns) {
     if(error) {
       callback(error, undefined)
     } else {
-      callback(null, customers)
+      callback(null, customer)
     }
   })
 }

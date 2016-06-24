@@ -60,7 +60,7 @@ function(req, res, next) {
 
 router.get('/rentals/:title/return/:customer_id',
 function(req, res, next) {
-  rentals_controller.return(req, res, next)
+  rentals_controller.return_rental(req, res, next)
 })
 
 router.get('/rentals/overdue',
