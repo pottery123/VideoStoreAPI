@@ -68,6 +68,14 @@ function(req, res, next) {
   rentals_controller.overdue(req, res, next)
 })
 
+router.get('/api/docs',
+function(req, res, next) {
+  res.render('docs', { title: 'API Docs - HTML'})
+})
 
+router.get('/api/docs.json',
+function(req,res) {
+  res.render('docs_json')
+})
 
 module.exports = router

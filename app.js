@@ -17,6 +17,10 @@ app.set('db', db)
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
+//views...?
+app.engine('html', require('ejs').renderFile)
+app.set('view engine', 'html')
+
 var routes = require('./routes/index')
 
 var zomgRoutes = require('./routes/zomg')
