@@ -34,7 +34,7 @@ We will use [NodeJS](https://nodejs.org/en/) and [Express](http://expressjs.com/
 - `registered_at`: When the customer first visited the store
 - The customer's physical address, composed of:
   - `address`
-  - `city` 
+  - `city`
   - `state`
   - `postal_code`
 - `phone`: Primary contact phone number
@@ -82,7 +82,7 @@ The API you build should have the following capabilities. The schema of your dat
 - Look a movie up by title to see (`/rentals/Jaws`)
   - it's synopsis
   - release date
-  - available inventory (not currently checked-out to a customer) 
+  - available inventory (not currently checked-out to a customer)
   - and inventory total
 - See a list of customers that have _currently_ checked out any of the movie's inventory (`/rentals/Jaws/customers`)
 - Given a customer's `id` and a movie's `title` ...
@@ -98,3 +98,4 @@ The API you build should have the following capabilities. The schema of your dat
 - All endpoints must be tested.
 - We will use [Jasmine](https://github.com/mhevery/jasmine-node) for tests.
 - There isn't a coverage requirement for this project, beyond demonstrating that every endpoint is covered by some manner of tests.
+yes
